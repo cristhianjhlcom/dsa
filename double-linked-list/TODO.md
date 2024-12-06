@@ -16,3 +16,20 @@
     - [x] Establecer la propiedad `tail` en `NULL`.
     - [x] Debe regresar un puntero a `EmployeeLinkedList`.
 - [] Implementemos el metodo `prepend` para una lista de empleados `EmployeeLinkedList`.
+    - [] Debe verificar si el employee existe en la lista.
+        - Si existe no agregamos nada y devolvemos `false`.
+        - Si no existe, procedemos con logica de agregar el employee a la lista.
+    - [x] Crear un nuevo nodo para `EmployeeNode` en memoria.
+        - Asegurate de mostrar un mensaje de error si no se asigno correctamente.
+    - [x] Asignamos el campo `data` del nodo al item `Employee` pasado por parametro.
+    - [x] Establecemos el campo `next` que apunte al `head` actual de la lista, puede ser `NULL`.
+    - [x] Establecemos el campo `prev` en `NULL` (Como estamos insertando en el `head` de la lista no deberia tener un nodo previo.
+    - [x] Verificar si el `head` actual tiene algun nodo.
+        - Si lo tiene le asignamos el nuevo nodo a el nodo prev del `head` actual. `list->head->prev = new_node`
+        - Si no, continuamos con el codigo, significa que es el primer nodo insertado.
+    - [x] Cambiamos el puntero del `head` para que apunte al nuevo nodo `list->head = new_node`;
+    - [x] Revisamo si la `tail` de la lista es `NULL`.
+        - Si lo es asignamos el nuevo nodo. (esto quiere decir que es el primer valor insertado)
+        - Si no, no hacemos nada y continuamos con el codigo
+    - [x] Incrementamos el tamano de la lista `size++`.
+    - [] Si todo fue correcto devolvemo `true`.
