@@ -13,3 +13,5 @@ typedef struct EmployeeLinkedList {
 employee_linked_list_t *create_list();
 void prepend(employee_linked_list_t *l, employee_t *item);
 void append(employee_linked_list_t *l, employee_t *item);
+employee_t *destroy(employee_linked_list_t *l);
+employee_t *pop(employee_linked_list_t *l);

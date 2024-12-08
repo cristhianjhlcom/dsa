@@ -54,3 +54,22 @@ void append(employee_linked_list_t *l, employee_t *item) {
     }
     l->size++;
 }
+
+employee_t *destroy(employee_linked_list_t *l) {
+    if (l->head == NULL) {
+        printf("Nothing to remove from the list.\n");
+        exit(1);
+    }
+    employee_node_t *tmp_head = l->head;
+    if (tmp_head->next != NULL) {
+        tmp_head->next->prev = l->head->prev;
+    }
+    l->head = tmp_head->next;
+    employee_t *employee = tmp_head->employee;
+    l->size--;
+    free(tmp_head);
+    if (l->head == NULL) {
+        l->tail = NULL;
+    }
+    return employee;
+}

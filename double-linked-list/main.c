@@ -3,8 +3,11 @@
 #include "employee_node.h"
 #include <stdio.h>
 
+void print_list(employee_linked_list_t *list);
+
 int main() {
     printf("Employee Linked List\n");
+    printf("---------------------------------------\n");
     employee_linked_list_t *list = create_list();
 
     employee_t employee_1;
@@ -25,10 +28,22 @@ int main() {
     /*prepend(list, &employee_1);*/
     /*prepend(list, &employee_2);*/
     /*prepend(list, &employee_3);*/
+    /*printf("Prepend Success!\n");*/
+    /*print_list(list);*/
+
     append(list, &employee_1);
     append(list, &employee_2);
     append(list, &employee_3);
+    printf("Append Success!\n");
+    print_list(list);
 
+    destroy(list);
+    printf("Remove Success!\n");
+    print_list(list);
+    return 0;
+}
+
+void print_list(employee_linked_list_t *list) {
     employee_node_t *current = list->head;
     while (current != NULL) {
         printf("Employee %s, %s with %d years old.\n",
@@ -38,5 +53,5 @@ int main() {
               );
         current = current->next;
     }
-    return 0;
+    printf("---------------------------------------\n");
 }
