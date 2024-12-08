@@ -37,9 +37,17 @@ int main() {
     printf("Append Success!\n");
     print_list(list);
 
-    destroy(list);
-    printf("Remove Success!\n");
+    /*destroy(list);*/
+    /*destroy(list);*/
+    /*destroy(list);*/
+    /*printf("Destroy Success!\n");*/
+    /*print_list(list);*/
+
+    pop(list);
+    pop(list);
+    printf("Pop Success!\n");
     print_list(list);
+
     return 0;
 }
 

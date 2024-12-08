@@ -73,3 +73,22 @@ employee_t *destroy(employee_linked_list_t *l) {
     }
     return employee;
 }
+
+employee_t *pop(employee_linked_list_t *l) {
+    if (l->head == NULL) {
+        printf("Nothing to remove from the list.\n");
+        exit(1);
+    }
+    employee_node_t *tmp_tail = l->tail;
+    if (tmp_tail->prev != NULL) {
+        tmp_tail->prev->next = l->tail->next;
+    }
+    l->tail = tmp_tail->prev;
+    employee_t *employee = tmp_tail->employee;
+    l->size--;
+    free(tmp_tail);
+    if (l->tail == NULL) {
+        l->head = NULL;
+    }
+    return employee;
+}
