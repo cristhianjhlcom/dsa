@@ -35,3 +35,22 @@ void prepend(employee_linked_list_t *l, employee_t *item) {
     }
     l->size++;
 }
+
+void append(employee_linked_list_t *l, employee_t *item) {
+    employee_node_t *n = malloc(sizeof(employee_node_t));
+    if (n == NULL) {
+        printf("Memory allocation failed.\n");
+        exit(1);
+    }
+    n->employee = item;
+    n->next = NULL;
+    n->prev = l->tail;
+    if (l->tail != NULL) {
+        l->tail->next = n;
+    }
+    l->tail = n;
+    if (l->head == NULL) {
+        l->head = n;
+    }
+    l->size++;
+}
